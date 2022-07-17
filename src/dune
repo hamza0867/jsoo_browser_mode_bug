@@ -1,0 +1,20 @@
+(executables
+  (names Main)
+  (modes js)
+  (preprocess (pps js_of_ocaml-ppx))
+  (flags (-w @A-4-33-41-42-43-34-44-31-70 -g))
+  (ocamlopt_flags (-O3))
+)
+(env 
+  (dev 
+    (js_of_ocaml 
+      (flags (:standard --target-env=browser --pretty --enable=staticeval --enable=deadcode))
+    )
+  )
+  (prod 
+    (ocamlopt_flags (-O3))
+    (js_of_ocaml 
+      (flags (:standard --target-env=browser --opt=3))
+    )
+  )
+)

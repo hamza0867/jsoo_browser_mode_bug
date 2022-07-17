@@ -1,0 +1,38 @@
+{
+  "name": "jsoo_simple",
+  "dependencies": {
+    "@opam/dune": "*",
+    "@opam/js_of_ocaml": "*",
+    "@opam/js_of_ocaml-ppx": "*",
+    "@opam/reason": "3.8.0",
+    "ocaml": "4.14"
+  },
+  "devDependencies": {
+    "@opam/ocaml-lsp-server": "*"
+  },
+  "esy": {
+    "build": "dune build --profile prod src/Main.bc.js",
+    "buildsInSource": "_build"
+  },
+  "resolutions": {
+    "@opam/js_of_ocaml-ppx": {
+      "source": "ocsigen/js_of_ocaml:js_of_ocaml-ppx.opam#8b6b1f6",
+      "override": {
+        "dependencies": {
+          "@opam/js_of_ocaml": "ocsigen/js_of_ocaml:js_of_ocaml.opam#8b6b1f6",
+          "@opam/js_of_ocaml-compiler": "ocsigen/js_of_ocaml:js_of_ocaml-compiler.opam#8b6b1f6"
+        }
+      }
+    },
+    "@opam/js_of_ocaml": {
+      "source": "ocsigen/js_of_ocaml:js_of_ocaml.opam#8b6b1f6",
+      "override": {
+        "dependencies": {
+          "@opam/js_of_ocaml-compiler": "ocsigen/js_of_ocaml:js_of_ocaml-compiler.opam#8b6b1f6"
+        }
+      }
+    },
+    "@opam/js_of_ocaml-compiler": "ocsigen/js_of_ocaml:js_of_ocaml-compiler.opam#8b6b1f6",
+    "@opam/ocamlfind": "1.9.3"
+  }
+}
